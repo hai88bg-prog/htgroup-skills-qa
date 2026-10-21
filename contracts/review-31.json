@@ -1,0 +1,50 @@
+{
+  "schema": "htgroup-public-review-criteria-v1",
+  "revision": "cinematic_v2",
+  "DR": {
+    "DR01": "Each scene's objective, obstacle, consequence and emotional shift cause subsequent beats, with no narrative reset.",
+    "DR02": "Every absolute 15-second clip advances a unique event; no replay of a completed event or unsupported continuation.",
+    "DR03": "Every character and prop follows the locked cast, hands, world and entry/exit states; no unexplained prop materialization, loss, creation or acquisition.",
+    "DR04": "World geometry, physical location, time, camera side, weather and lighting remain coherent across boundaries.",
+    "DR05": "Opening 0–3s presents an immediate striking dramatic event, giant creature, or memorable strange creature; 0–15s shows a consequential action and 15–30s escalates/concretely pays it forward. Opening, turning points, revelations, climax, emotional arc and ending remain causally intelligible across the whole film. Do not force intro speech.",
+    "DR06": "The prior event's physical aftermath survives each clip/scene; moving between A1/A2/A3 anchors requires a timed travel event with plausible physical duration, never teleportation; a CUT is not confused with a continuous boundary.",
+    "DR07": "An editor proposal may revise only explicitly named event action text, never event identity, timing, status, ownership or locked facts."
+  },
+  "A": {
+    "A01": "Câu chuyện có chuỗi **nguyên nhân–hành động–hệ quả** dài đúng 20–25 phút theo runtime khai báo; mỗi clip 15 giây diễn được, không phải trailer/tập hợp teaser/CTA. Dẫn event/timestamp và consequence.",
+    "A02": "Mỗi clip có ledger: `clip_id`, thời gian tuyệt đối, `script`, `present/visible/offscreen`, `start_state/end_state`, `handoff_out`, `action_axis`. Dẫn tên trường thực có.",
+    "A03": "Vị trí gắn anchor + dx/dy mét theo bản đồ đã khóa; không dùng placeholder hoặc phỏng đoán như đo từ ảnh. Dẫn entity và map anchor.",
+    "A04": "`World presence/offscreen state` tồn tại độc lập với framing; người không biến mất chỉ vì máy quay cắt cận. So sánh states/present/visible.",
+    "A05": "Mọi dịch chuyển có đường đi, gait và thời gian đủ; không teleport; hướng quay và start/end khớp. Dẫn move/turn.",
+    "A06": "Mọi attention change đầy đủ: vị trí người được chú ý, sự hiện diện, việc nhìn/nghe, khoảng cách tính từ tọa độ, camera có thể thấy, cách giới thiệu nhân vật ngoài khung, thời điểm. Dẫn attention_shifts.",
+    "A07": "`continuous` phải có `end_state(Cn) == start_state(Cn+1)` về vị trí, pose, facing, tay/đạo cụ, môi trường và pha hành động; với `cut` không ép state giống nhau. Dẫn hai state.",
+    "A08": "Mỗi clip sở hữu duy nhất **khoảng 15 giây tuyệt đối**, `event_ids` và `visual_beats` có cause/action/consequence/visual_intent/source; không lặp event đã hoàn thành, **không** đòi dành cửa sổ góc rộng cuối clip.",
+    "A09": "Lời thoại ghi speaker, time window, vừa thời gian phát âm của film language, không chồng nhau. `2.8 words/s` chỉ tham khảo cho English.",
+    "A10": "Đổi location hoặc time phải khai báo `CUT/new scene`; không giả continuous khi vị trí/thời gian khác.",
+    "A11": "IDs/tên đúng canon concept + manifest, không đưa nhầm tên phim khác; tên hợp lệ trong nguồn không tự FAIL do reviewer không biết.",
+    "A12": "`transition_in` khớp `handoff_out.mode` clip trước; chỉ clip cuối toàn phim mới được `'end'`; scene last clip phải nối scene sau đúng chế độ.",
+    "A13": "Phân biệt canon đã đo/khóa và geometry tác giả đặt; tọa độ authored phải nhất quán, không tuyên bố đo 3D từ ảnh không có chứng cứ.",
+    "A14": "Dùng đúng **ba landmark/IDs** và đúng `location_id` đã khóa của scene, ở mọi vị trí. Nếu runtime cấp phép điền location_id bị thiếu thì validator có thể điền, nhưng skill vẫn luôn xuất đầy đủ."
+  },
+  "B": {
+    "B01": "Mỗi clip **đúng 4 shot** với các cửa sổ liên tục, thời lượng cộng đúng 15 s.",
+    "B02": "Camera và khung hình nhất quán: cỡ cảnh, góc, vị trí, độ cao, tiêu cự, điểm ngắm, điểm nét, chuyển động, tiền/trung/hậu cảnh, panel_time_s và `image_prompt` mô tả đúng một hình.",
+    "B03": "Mọi `source_refs` của ACTION/SOUND/IMAGE_PROMPT/PURPOSE trỏ đến track sự kiện Stage 3 được duyệt, có giao cắt thời gian hợp lệ. Không phát lại sự kiện; world state ở giây 15 không đổi.",
+    "B04": "OTS thực sự qua vai: `ots.over` và `ots.toward` khác nhau, cả hai hiện diện, máy sau vai và đối tượng phía trước đúng hướng. Không chọn OTS nếu bố cục vật lý không cho phép.",
+    "B05": "Trục hành động 180° tuân theo tọa độ thế giới, kể cả nối clip. Qua trục phải có shot trung tính hoặc đường máy chuyển động nhìn thấy rõ.",
+    "B06": "Shot 4 dùng đúng mục đích phim, **có thể CLOSE/INSERT/POV**. `panel_time_s` chỉ là thời điểm hình đại diện; world boundary tại 15s độc lập, không ép shot 4 rộng, không ép thời lượng shot cuối.",
+    "B07": "Mỗi cut có `edit.type`, `edit.motivation`, `edit.reason`; không giấu nhân vật dịch chuyển hoặc bỏ thời gian không được cho phép.",
+    "B08": "Chỉ đưa đúng nhân vật dự định vào khung, người/đạo cụ ngoài khung vẫn ở đúng world state. `critical_detail` phải được quay dễ đọc bằng CLOSE/EXTREME_CLOSE/INSERT.",
+    "B09": "Xem tối đa 12 shot gần nhất để tránh lặp cùng chủ thể/cỡ/góc/chức năng. Không ép nhịp bốn shot theo công thức, không khóa shot 4 làm ảnh tham chiếu; máy tĩnh được phép. Nếu lặp, nêu lý do có bằng chứng từ kịch bản.",
+    "B10": "Không thêm/đổi câu thoại, sự kiện, va chạm, hiểm họa, thương tích, hiệu ứng, di chuyển, tương tác, luật vật lý hoặc ánh sáng ngoài ledger Stage 3."
+  },
+  "cross_stage_rules": [
+    "Stage 3 author must prevent foreseeable B03/B05/B07/B09/B10 downstream problems by authoring explicit timed events, physical states, speech windows, and causal beats. Stage 3 MUST NOT pre-author shot/camera movement.",
+    "Stage 4 is allowed to change only shot/camera/edit/reference selection; never rewrite immutable Stage 3 source. Upstream errors are returned to the Stage 3 owner internally and Stage 4 stays BLOCKED until a NEW, fully validated Stage 3 revision is supplied.",
+    "Every failing stage repairs its own fields and reruns all impacted gates; no bad output is forwarded to the next stage.",
+    "No artificial camera quotas, shot timing template, generic repetitive prose or mandatory movement; B09 is assessed against story-supported choices.",
+    "Offline PASS never means HT-Group native PASS, independent reviewer PASS, import success, or Canvas wires.",
+    "For new V9.4 film packages, complete runtime is 20–25 minutes (80–100 clips of 15 seconds); Stage 3 carries explicit two-clip 0–30s hook in source and screenplay; Stage 4 visualizes those exact source events without adding new spectacle. Native runtime may have a different contract and must be audited independently before claiming native PASS."
+  ],
+  "notes": "Snapshot of review criteria only; not a native reviewer or an approval."
+}

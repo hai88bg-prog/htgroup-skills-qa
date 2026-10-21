@@ -1,0 +1,9 @@
+[project]
+name = "htgroup-skills-qa"
+version = "0.1.0"
+requires-python = ">=3.9"
+description = "Public portable offline QA gates for HT-Group skill stages 3–8"
+license = "MIT"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
