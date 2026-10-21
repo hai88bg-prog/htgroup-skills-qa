@@ -9,3 +9,17 @@
 7. Nếu thiếu native repo, reviewer, hoặc dữ liệu có thể chứng minh một tiêu chí, giữ trạng thái `NOT_RUN`; tuyệt đối không suy ra `Native PASS` hay `Reviewer PASS`.
 
 Trong dự án riêng, pin commit hash/tag của repo này thay vì tự động lấy `main` mỗi lần chạy. Khi AI đang viết phim, không cập nhật checker giữa phiên; kiểm phiên bản ở đầu và lưu checkpoint cho cả stage.
+
+## Tạo gói ZIP riêng để chuyển skill
+
+Có thể tạo ZIP trực tiếp trên máy cũ, không upload lên repo public:
+
+```bash
+python3 tools/bundle_private_skills.py \
+  --skill /path/to/htgroup-stage3-screenplay \
+  --skill /path/to/htgroup-stage4-shotlist \
+  --output /path/to/HTGROUP_SKILLS_PRIVATE_TRANSFER.zip
+python3 tools/bundle_private_skills.py --verify /path/to/HTGROUP_SKILLS_PRIVATE_TRANSFER.zip
+```
+
+Bổ sung `--skill` cho các bước 5–8 khi có thư mục skill tương ứng. Trình đóng gói chỉ lấy file văn bản/script/reference từ các skill, bỏ qua `.env`, cache, file media và dữ liệu phim. Kiểm thử lại trên máy nhận để bảo đảm không có dependency bị thiếu. **ZIP này là bản riêng tư, không upload lên GitHub public.**

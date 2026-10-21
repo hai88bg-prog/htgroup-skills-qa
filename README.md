@@ -64,3 +64,7 @@ Use `--output report.json` to save the report and `--require-final` in strict au
 Only the reviewed criteria snapshot, generic validators, synthetic tests and docs are committed. The original project remains private. No generated film data, `.env`, accounts, model access keys, asset images, exported ZIPs or native HT-Group code is included.
 
 MIT license applies to the code in this repository only; it does not change the license or confidentiality of the original HT-Group project.
+
+## Local private portable ZIP export
+
+`tools/bundle_private_skills.py` can copy designated private skill folders together with this public QA library **into a local ZIP only**, and `--verify` checks all SHA-256 checksums. It never uploads that ZIP. Example commands are in `docs/MOVE_TO_NEW_MACHINE.md`. It excludes typical credential/config files, caches, film data and media, but you must inspect any archive before distributing it.
